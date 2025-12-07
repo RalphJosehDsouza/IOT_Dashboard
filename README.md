@@ -43,55 +43,6 @@ A professional, production-ready IoT dashboard for real-time temperature, humidi
 
 ## 🚀 Quick Start
 
-### Option 1: Deploy Your Own (Recommended)
-
-1. **Fork this repository** or click "Use this template"
-2. **Clone your fork**:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/iot-dashboard.git
-   cd iot-dashboard
-   ```
-3. **Enable GitHub Pages**:
-   - Go to your repository **Settings**
-   - Navigate to **Pages** section
-   - Select **Source: Deploy from branch "main"**
-   - Click **Save**
-4. **Your dashboard is live!** Visit: `https://YOUR_USERNAME.github.io/iot-dashboard`
-
-### Option 2: One-Command Deployment
-
-```bash
-chmod +x deploy.sh
-./deploy.sh
-```
-
-The script will guide you through the deployment process.
-
-## 📋 Manual Setup
-
-### Prerequisites
-
-- Git installed
-- GitHub account
-- Web browser
-
-### Steps
-
-1. **Create a new repository** on GitHub named `iot-dashboard`
-2. **Clone and setup**:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/iot-dashboard.git
-   cd iot-dashboard
-   git init
-   git add .
-   git commit -m "Initial IoT Dashboard"
-   git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/iot-dashboard.git
-   git push -u origin main
-   ```
-3. **Enable GitHub Pages** (Settings → Pages → Deploy from branch "main")
-4. **Access your dashboard** at `https://YOUR_USERNAME.github.io/iot-dashboard`
-
 ## 🔧 Configuration
 
 ### Using Real API Data
@@ -195,20 +146,6 @@ To install:
 - Ensure Chart.js CDN is accessible
 - Try clearing browser cache
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 🙏 Acknowledgments
 
 - [Chart.js](https://www.chartjs.org/) for beautiful charts
@@ -227,4 +164,3 @@ For issues, questions, or suggestions:
 **Made with ❤️ for the IoT community**
 
 ⭐ Star this repo if you find it useful!
-
