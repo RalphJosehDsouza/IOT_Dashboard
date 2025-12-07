@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>IoT Device Dashboard - Real-Time Sensor Monitoring</title>
+    <meta name="description" content="Professional IoT dashboard for real-time temperature, humidity, and device status monitoring with live data visualization.">
+    <meta name="keywords" content="IoT, dashboard, temperature, humidity, sensors, monitoring, real-time">
+    <meta name="author" content="IoT Dashboard">
+    <meta name="theme-color" content="#1e3c72">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="IoT Device Dashboard - Real-Time Sensor Monitoring">
+    <meta property="og:description" content="Professional IoT dashboard for real-time temperature, humidity, and device status monitoring.">
+    <meta property="og:image" content="https://yourusername.github.io/iot-dashboard/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="IoT Device Dashboard - Real-Time Sensor Monitoring">
+    <meta property="twitter:description" content="Professional IoT dashboard for real-time temperature, humidity, and device status monitoring.">
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1>IoT Device Dashboard</h1>
+                <div class="api-status">
+                    <span class="api-status-indicator" id="apiStatusIndicator"></span>
+                    <span class="api-status-text" id="apiStatusText">Connecting...</span>
+                </div>
+            </div>
+            <button id="refreshBtn" class="refresh-btn">
+                <span class="refresh-icon" id="refreshIcon">🔄</span>
+                Refresh
+            </button>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="dashboard-grid">
+            <!-- Temperature Card -->
+            <div class="card temperature-card">
+                <div class="card-header">
+                    <h2>Temperature</h2>
+                    <span class="card-icon">🌡️</span>
+                </div>
+                <div class="card-content">
+                    <div class="loading-spinner" id="tempSpinner"></div>
+                    <div class="metric-value" id="temperatureValue">--</div>
+                    <div class="metric-unit">°C</div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-indicator" id="tempStatus"></span>
+                    <span class="status-text" id="tempStatusText">Normal</span>
+                </div>
+            </div>
+
+            <!-- Humidity Card -->
+            <div class="card humidity-card">
+                <div class="card-header">
+                    <h2>Humidity</h2>
+                    <span class="card-icon">💧</span>
+                </div>
+                <div class="card-content">
+                    <div class="loading-spinner" id="humiditySpinner"></div>
+                    <div class="metric-value" id="humidityValue">--</div>
+                    <div class="metric-unit">%</div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-indicator" id="humidityStatus"></span>
+                    <span class="status-text" id="humidityStatusText">Normal</span>
+                </div>
+            </div>
+
+            <!-- Device Status Card -->
+            <div class="card status-card">
+                <div class="card-header">
+                    <h2>Device Status</h2>
+                    <span class="card-icon">⚙️</span>
+                </div>
+                <div class="card-content">
+                    <div class="loading-spinner" id="statusSpinner"></div>
+                    <div class="status-badge" id="deviceStatus">--</div>
+                </div>
+                <div class="card-footer">
+                    <span class="last-update">Last Update: <span id="lastUpdate">--</span></span>
+                </div>
+            </div>
+
+            <!-- Alerts Card -->
+            <div class="card alerts-card">
+                <div class="card-header">
+                    <h2>Alerts</h2>
+                    <span class="card-icon">⚠️</span>
+                </div>
+                <div class="card-content">
+                    <ul class="alerts-list" id="alertsList">
+                        <li class="alert-item">No active alerts</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Temperature Chart Card -->
+            <div class="card chart-card">
+                <div class="card-header">
+                    <h2>Temperature Trend</h2>
+                    <span class="card-icon">📊</span>
+                </div>
+                <div class="card-content">
+                    <canvas id="temperatureChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed'));
+            });
+        }
+    </script>
+</body>
+</html>
+
